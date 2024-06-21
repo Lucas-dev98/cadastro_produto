@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
 
 produtos = []
 
@@ -25,6 +25,7 @@ def cadastrar_produto():
         }
         produtos.append(produto)
         return redirect(url_for('listar_produtos'))
+    
     return render_template('cadastrar_produto.html')
 
 if __name__ == '__main__':

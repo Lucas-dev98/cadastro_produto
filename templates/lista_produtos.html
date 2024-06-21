@@ -4,26 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Produtos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <h1>Lista de Produtos</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Valor</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for produto in produtos %}
-                <tr>
-                    <td>{{ produto.nome }}</td>
-                    <td>{{ produto.valor }}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <br>
-    <a href="{{ url_for('cadastrar_produto') }}">Cadastrar Novo Produto</a>
+    <div class="container">
+        {% for produto in produtos %}
+            <div class="produto">
+                <h3>{{ produto.nome }}</h3>
+                <p>{{ produto.descricao }}</p>
+                <p><span class="valor">Valor:</span> R$ {{ produto.valor }}</p>
+                <p>{{ 'Disponível para venda' if produto.disponivel else 'Não disponível para venda' }}</p>
+            </div>
+        {% endfor %}
+        <a href="{{ url_for('cadastrar_produto') }}">Cadastrar novo produto</a>
+    </div>
 </body>
 </html>

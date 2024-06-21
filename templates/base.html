@@ -1,0 +1,30 @@
+<!-- templates/base.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Minha Aplicação{% endblock %}</title>
+    <!-- Incluir CSS, JavaScript, etc. comuns -->
+</head>
+<body>
+    <!-- Menu de navegação -->
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/cadastrar">Cadastrar Produto</a></li>
+            <!-- Outros itens do menu -->
+        </ul>
+    </nav>
+
+    <!-- Conteúdo específico de cada página -->
+    {% block content %}
+    {% endblock %}
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2024 Minha Empresa</p>
+    </footer>
+</body>
+</html>
